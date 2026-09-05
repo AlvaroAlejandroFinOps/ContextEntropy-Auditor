@@ -1,4 +1,10 @@
+![alt text](<Context Entropy.jpeg>)
 # Context Entropy Auditor (CEA)
+
+[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](pyproject.toml)
+[![Language: English](https://img.shields.io/badge/Language-English-orange.svg)](README.md)
+[![Versión en Español](https://img.shields.io/badge/Idioma-Español-green.svg)](README_ES.md)
 
 ## Abstract
 
