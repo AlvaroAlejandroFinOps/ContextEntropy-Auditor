@@ -1,4 +1,5 @@
 ![alt text](<Context Entropy.jpeg>)
+
 # Context Entropy Auditor (CEA) by Hyperscale Thinking
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
