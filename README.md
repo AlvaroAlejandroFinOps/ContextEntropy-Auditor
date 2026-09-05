@@ -1,5 +1,5 @@
 ![alt text](<Context Entropy.jpeg>)
-# Context Entropy Auditor (CEA)
+# Context Entropy Auditor (CEA) by Hyperscale Thinking
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](pyproject.toml)
