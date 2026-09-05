@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0.0",
+  "messages": [
+    {
+      "id": "msg-1",
+      "role": "system",
+      "content": "Translate the following text to French.",
+      "timestamp": "2025-09-05T10:00:00Z"
+    },
+    {
+      "id": "msg-2",
+      "role": "user",
+      "content": "Hello world",
+      "timestamp": "2025-09-05T10:01:00Z"
+    },
+    {
+      "id": "msg-3",
+      "role": "assistant",
+      "content": "Bonjour le monde",
+      "timestamp": "2025-09-05T10:01:05Z"
+    },
+    {
+      "id": "msg-4",
+      "role": "user",
+      "content": "Write a python script to calculate fibonacci",
+      "timestamp": "2025-09-05T10:10:00Z"
+    },
+    {
+      "id": "msg-5",
+      "role": "assistant",
+      "content": "Voici le script Python pour calculer Fibonacci:\n```python\ndef fib(n):\n    if n <= 1: return n\n    return fib(n-1) + fib(n-2)\n```",
+      "timestamp": "2025-09-05T10:10:10Z"
+    }
+  ],
+  "documents": [],
+  "tool_events": []
+}

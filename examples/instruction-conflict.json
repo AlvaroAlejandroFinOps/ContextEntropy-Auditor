@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "messages": [
+    {
+      "id": "msg-1",
+      "role": "system",
+      "content": "You are a highly polite assistant. Never use informal language. Always write at least 3 paragraphs.",
+      "timestamp": "2025-09-05T10:00:00Z"
+    },
+    {
+      "id": "msg-2",
+      "role": "user",
+      "content": "Respond ONLY with 'yes' or 'no'. Is the sky blue?",
+      "timestamp": "2025-09-05T10:00:10Z"
+    },
+    {
+      "id": "msg-3",
+      "role": "assistant",
+      "content": "Yes, indeed, the sky is generally observed to be blue due to Rayleigh scattering. I am delighted to assist you with this inquiry.\n\nFurthermore, this phenomenon is most prominent during the daytime when sunlight passes through the atmosphere. The shorter wavelengths scatter more effectively.\n\nI hope this comprehensive response satisfies your requirements. Please let me know if you need anything else.",
+      "timestamp": "2025-09-05T10:00:20Z"
+    }
+  ],
+  "documents": [],
+  "tool_events": []
+}

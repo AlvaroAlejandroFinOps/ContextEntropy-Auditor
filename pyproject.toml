@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "context-entropy-auditor"
+version = "0.5.0"
+description = "Context Entropy Auditor (CEA) - Evidence-based context reliability framework for LLM applications"
+authors = [
+    { name = "HyperScale Thinking" }
+]
+requires-python = ">=3.9"
+dependencies = [
+    "pydantic>=2.0.0",
+    "jsonschema>=4.0.0",
+    "pyyaml>=6.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0"
+]
+
+[project.scripts]
+context-auditor = "src.context_auditor.cli:main"

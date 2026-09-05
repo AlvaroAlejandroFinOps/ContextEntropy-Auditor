@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "messages": [
+    {
+      "id": "msg-1",
+      "role": "system",
+      "content": "You are a helpful assistant.",
+      "timestamp": "2025-09-05T10:00:00Z"
+    },
+    {
+      "id": "msg-2",
+      "role": "user",
+      "content": "Can you explain how Context Entropy Auditor works?",
+      "timestamp": "2025-09-05T10:00:05Z"
+    },
+    {
+      "id": "msg-3",
+      "role": "assistant",
+      "content": "Context Entropy Auditor evaluates the reliability of a context window by analyzing 6 dimensions...",
+      "timestamp": "2025-09-05T10:00:15Z"
+    }
+  ],
+  "documents": [],
+  "tool_events": []
+}

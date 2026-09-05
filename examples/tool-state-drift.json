@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0.0",
+  "messages": [
+    {
+      "id": "msg-1",
+      "role": "user",
+      "content": "What is the current stock price of AAPL?",
+      "timestamp": "2025-09-05T10:00:00Z"
+    },
+    {
+      "id": "msg-2",
+      "role": "assistant",
+      "content": "I need to check the stock price.",
+      "timestamp": "2025-09-05T10:00:05Z"
+    },
+    {
+      "id": "msg-3",
+      "role": "tool",
+      "content": "{\"price\": 150.25, \"timestamp\": \"2025-09-04T16:00:00Z\"}",
+      "timestamp": "2025-09-05T10:00:10Z"
+    },
+    {
+      "id": "msg-4",
+      "role": "assistant",
+      "content": "The stock price is $150.25.",
+      "timestamp": "2025-09-05T10:00:15Z"
+    },
+    {
+      "id": "msg-5",
+      "role": "user",
+      "content": "Are you sure? Check again.",
+      "timestamp": "2025-09-05T10:10:00Z"
+    },
+    {
+      "id": "msg-6",
+      "role": "assistant",
+      "content": "I will check again.",
+      "timestamp": "2025-09-05T10:10:05Z"
+    },
+    {
+      "id": "msg-7",
+      "role": "tool",
+      "content": "{\"price\": 152.10, \"timestamp\": \"2025-09-05T10:09:00Z\"}",
+      "timestamp": "2025-09-05T10:10:10Z"
+    },
+    {
+      "id": "msg-8",
+      "role": "assistant",
+      "content": "The stock price is $150.25.",
+      "timestamp": "2025-09-05T10:10:15Z"
+    }
+  ],
+  "documents": [],
+  "tool_events": [
+    {
+      "id": "tool-1",
+      "tool_name": "get_stock_price",
+      "parameters": {"symbol": "AAPL"},
+      "result": "{\"price\": 150.25}",
+      "timestamp": "2025-09-05T10:00:10Z"
+    },
+    {
+      "id": "tool-2",
+      "tool_name": "get_stock_price",
+      "parameters": {"symbol": "AAPL"},
+      "result": "{\"price\": 152.10}",
+      "timestamp": "2025-09-05T10:10:10Z"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+weights:
+  instruction_conflict: 0.20
+  task_ambiguity: 0.20
+  context_contamination: 0.20
+  evidence_quality: 0.15
+  state_integrity: 0.15
+  redundancy_pressure: 0.10
+
+thresholds:
+  stable: 24.99
+  moderate: 49.99
+  high: 74.99
+  critical: 100.0
+
+override_rules:
+  critical_conflict_high_risk:
+    dimension: instruction_conflict
+    condition: "=="
+    value: 100
+    minimum_status: "high"
+  critical_state_high_risk:
+    dimension: state_integrity
+    condition: "=="
+    value: 100
+    minimum_status: "high"
+  critical_evidence_critical_risk:
+    dimension: evidence_quality
+    condition: "=="
+    value: 100
+    requires_factual: true
+    minimum_status: "critical"
+  low_coverage_warning:
+    metric: evidence_coverage
+    condition: "<"
+    value: 0.30
+    action: "prevent_stable_without_warning"
