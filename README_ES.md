@@ -1,4 +1,4 @@
-![Context Entropy Auditor](./Context%20Entropy-2.jpeg)
+![alt text](Entropy.jpeg)
 # Auditor de Entropía de Contexto — Context Entropy Auditor (CEA)
 
 [![Licencia MIT](https://img.shields.io/badge/Licencia-MIT-blue.svg)](LICENSE)
