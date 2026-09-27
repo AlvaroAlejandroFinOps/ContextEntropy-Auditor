@@ -79,14 +79,7 @@ Context Entropy Auditor (CEA)/
 ├── 001_Seed/                        # Repositorio de semillas arquitectónicas (ThinkingSeed)
 │   └── seed-context-entropy-auditor-master.md
 ├── 01_Status/                       # Directorio de control de estado (stub)
-├── Artefactos/                      # Documentación y planes de evolución técnica
-│   ├── 01 PLAN GPT 5.6 SOL THINKING/
-│   │   ├── implementation_plan.md
-│   │   └── INSTRUCCION_MAESTRA_CONTEXT_ENTROPY_AUDITOR.md
-│   ├── Analisis de Planes/
-│   │   ├── Analisis_y_Plan_Definitivo.md
-│   │   ├── Plan_Optimizacion_GitHub.md
-│   │   └── Plan_Utilidades_Avanzadas.md
+├── artifacts/                       # Documentación y planes de evolución técnica
 │   ├── Fases/
 │   │   ├── README.md                # Resumen de estado de los incrementos
 │   │   ├── Inc0_Fundacion_Epistemica/ENTREGABLES.md
@@ -97,6 +90,16 @@ Context Entropy Auditor (CEA)/
 │   │   ├── Inc5_SDK_CLI/ENTREGABLES.md
 │   │   ├── Inc6_Dataset_Evaluacion/ENTREGABLES.md
 │   │   └── Inc7_Publicacion/ENTREGABLES.md
+│   ├── plans/
+│   │   ├── active/
+│   │   │   └── 01 PLAN GPT 5.6 SOL THINKING/
+│   │   │       ├── implementation_plan.md
+│   │   │       └── INSTRUCCION_MAESTRA_CONTEXT_ENTROPY_AUDITOR.md
+│   │   └── archive/
+│   │       └── Analisis de Planes/
+│   │           ├── Analisis_y_Plan_Definitivo.md
+│   │           ├── Plan_Optimizacion_GitHub.md
+│   │           └── Plan_Utilidades_Avanzadas.md
 │   └── Task del agente/task.md
 ├── config/
 │   └── scoring_defaults.yaml        # Ponderaciones provisionales, umbrales y override rules

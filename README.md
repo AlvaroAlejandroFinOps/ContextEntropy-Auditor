@@ -1,3 +1,4 @@
+![alt text](Entropy.jpeg)
 # CEA: Context Entropy Auditor
 
 **Language:** [English](README.md) | [Español](README_ES.md)
@@ -168,10 +169,9 @@ Context Entropy Auditor (CEA)/
 ├── pyproject.toml                   # Project metadata, build specs, and CLI entry point
 ├── 001_Seed/                        # Passive architectural memory and Ground Truth
 │   └── seed-context-entropy-auditor-master.md
-├── Artefactos/                      # Phase deliverables, execution plans, and task trackers
-│   ├── 01 PLAN GPT 5.6 SOL THINKING/
-│   ├── Analisis de Planes/
+├── artifacts/                       # Phase deliverables, execution plans, and task trackers
 │   ├── Fases/
+│   ├── plans/
 │   └── Task del agente/
 ├── config/
 │   └── scoring_defaults.yaml        # Externalized scoring weights, thresholds, and overrides

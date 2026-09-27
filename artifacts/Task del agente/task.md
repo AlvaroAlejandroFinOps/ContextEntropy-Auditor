@@ -1,7 +1,7 @@
 # CEA — Implementación Gradual
 
 ## Incremento 0 — Fundación Epistémica ✅
-- `[x]` Crear estructura de fases en `Artefactos/Fases/`
+- `[x]` Crear estructura de fases en `artifacts/Fases/`
 - `[x]` Archivar prompt original como `prompts/v0-original.md`
 - `[x]` `docs/methodology.md` — Contrato epistémico + capacidades/no-capacidades
 - `[x]` `docs/scoring.md` — 6 dimensiones con rúbricas completas

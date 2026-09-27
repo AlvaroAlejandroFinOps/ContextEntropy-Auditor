@@ -2,7 +2,7 @@
 
 ## Resumen Ejecutivo
 
-El documento [INSTRUCCION_MAESTRA_CONTEXT_ENTROPY_AUDITOR.md](file:///d:/0001 HyperScale Thinking/PROYECTOS CLOUD/Research and Development/Context Entropy Auditor (CEA)/Artefactos/01 PLAN GPT 5.6 SOL THINKING/INSTRUCCION_MAESTRA_CONTEXT_ENTROPY_AUDITOR.md) es un plan exhaustivo de ~1150 líneas que define la evolución del proyecto desde un prompt inyectable hacia un framework abierto de confiabilidad contextual. El plan fue generado con GPT 5.6 SOL Thinking y es técnicamente sólido, pero necesita descomponerse en unidades de trabajo ejecutables.
+El documento [INSTRUCCION_MAESTRA_CONTEXT_ENTROPY_AUDITOR.md](file:///d:/0001 HyperScale Thinking/PROYECTOS CLOUD/Research and Development/Context Entropy Auditor (CEA)/artifacts/plans/active/01 PLAN GPT 5.6 SOL THINKING/INSTRUCCION_MAESTRA_CONTEXT_ENTROPY_AUDITOR.md) es un plan exhaustivo de ~1150 líneas que define la evolución del proyecto desde un prompt inyectable hacia un framework abierto de confiabilidad contextual. El plan fue generado con GPT 5.6 SOL Thinking y es técnicamente sólido, pero necesita descomponerse en unidades de trabajo ejecutables.
 
 ---
 
