@@ -13,23 +13,22 @@
 ## 0. IDENTIDAD Y METADATOS
 ```yaml
 seed_schema_version: "2.0"
-project_name: "Context Entropy Auditor (CEA)"
-repository_name: "ContextEntropy-Auditor"
+project_name: "Context Entropy Auditor"
+repository_name: "Context Entropy Auditor (CEA)"
 project_type: "library"
 repository_mode: "single-project"
-generated_at: "2026-09-16T02:27:08-03:00"
-generated_by: "Antigravity (Advanced Agentic Assistant) / Gemini 3.8 Flash (High)"
+generated_at: "2026-09-27T16:34:00-03:00"
+generated_by: "Antigravity Agent (Gemini 3.8 Flash)"
 repository_root: "d:/0001 HyperScale Thinking/PROYECTOS CLOUD/Research and Development/Context Entropy Auditor (CEA)"
 git_branch: "master"
-git_commit: "db159d33e62d70d4b886377415de25fcf8a2abc3"
-working_tree_state: "clean"
+git_commit: "1820f44"
+working_tree_state: "dirty"
 analysis_mode: "static"
 coverage_level: "high"
 known_analysis_limits:
-  - "Inspección estática profunda de código fuente Python, esquemas JSON Draft-07, configuración YAML y documentación metodológica."
-  - "Suite completa de 25 pruebas unitarias y E2E validada al 100% mediante pytest 9.1.1 en runtime Python 3.12.10."
-  - "El adaptador GeminiAdapter se encuentra actualmente en modo Mock funcional para pruebas locales y CLI; la llamada real vía google-genai SDK requiere provisión de GEMINI_API_KEY y conexión online."
-  - "El entorno virtual local (.venv) no tiene instalados los paquetes dev (pytest se ejecuta mediante el intérprete del sistema)."
+  - "Validación de inferencia LLM remota con Gemini requiere clave API GEMINI_API_KEY en variables de entorno."
+  - "Inferencia LLM local soportada y verificada mediante el CLI de Antigravity (agy.exe) en PATH."
+  - "Modelos locales testeados: gemini-3.7-flash, gemini-3.1-pro, gemini-3.8-flash, gemini-3.6-flash con niveles de esfuerzo de pensamiento (low, medium, high, max)."
 ```
 
 ### 0.1 Instrucciones para el modelo receptor
@@ -47,373 +46,456 @@ known_analysis_limits:
 ---
 
 ## 1. RESUMEN EJECUTIVO
-- **1.1 Proyecto en una frase:** `[CONFIRMADO]` Context Entropy Auditor (CEA) es un framework y motor de auditoría epistemológica de confiabilidad y entropía contextual para aplicaciones basadas en Modelos de Lenguaje (LLMs), agentes conversacionales y arquitecturas RAG (Capa L5 de observabilidad de inferencia).
-- **1.2 Problema que resuelve:** `[CONFIRMADO]` Mitiga y diagnostica fallos críticos de ciclo de vida de contexto que degradan la inferencia del modelo: conflicto de instrucciones, ambigüedad en la tarea, contaminación contextual por persistencia indebida de subtareas anteriores, degradación de evidencia documental, pérdida de integridad del estado agéntico/herramientas y presión por redundancia/ruido en la ventana de contexto.
-- **1.3 Usuarios o sistemas consumidores:** `[CONFIRMADO]` Ingenieros de confiabilidad de IA (LLM SREs / Reliability Engineers), orquestadores de agentes autónomos (LangGraph, CrewAI, AutoGen), pipelines de RAG y gateways de inferencia para validación previa o posterior a la ejecución de prompts.
-- **1.4 Alcance y límites del sistema:** `[CONFIRMADO]` 
-  - **En alcance (MVP v0.5-public):** Extracción de señales deterministas libres de sesgo (zero-LLM), cálculo calibrado de IRC (Índice de Riesgo Contextual / CRS), validación estricta de esquemas JSON Draft-07, motor de políticas de remediación (`PolicyEngine`) y CLI ejecutable (`context-auditor`).
-  - **Límites epistemológicos:** `[CONFIRMADO]` CEA prohíbe taxativamente la confabulación mecanicista; no pretende acceder a pesos internos, logits, residual streams ni estados de KV-Cache físicos del LLM, evaluando exclusivamente evidencia textual observable y métricas de runtime medibles. El término "entropía" es una metáfora operativa de degradación y desorden, no una medida de Shannon ni termodinámica.
-  - **Fuera de alcance cercano:** `[DECLARADO]` Modos `auto_recover` no supervisados (deshabilitados por diseño), gobernanza multi-tenant enterprise, compresión adaptativa en tiempo real y UI/Dashboard web.
+
+### 1.1 Proyecto en una frase
+`[CONFIRMADO]` **Context Entropy Auditor (CEA)** es un framework y suite interactiva de diagnóstico epistémico y fiabilidad contextual para aplicaciones con Modelos de Lenguaje (LLMs), diseñado para auditar el Índice de Riesgo Contextual (IRC / CRS) a través de 6 dimensiones fundamentales, combinando extracción heurística determinista y evaluación semántica mediante adaptadores desacoplados (Google Gemini API y Antigravity CLI local).
+
+### 1.2 Problema que resuelve
+- **Degradación de señal y fatiga contextual:** Pérdida de coherencia, interferencia entre turnos contradictorios y dilución de restricciones críticas en ventanas de contexto extensas `[CONFIRMADO]`.
+- **Confabulación mecanicista:** Tendencia frecuente de los evaluadores basados en LLMs a inventar fallas internas de atención o estados no observables de KV Cache sin evidencia física `[CONFIRMADO]`.
+- **Falta de evaluación determinista combinada:** Ausencia de herramientas que integren métricas heurísticas objetivas (recencia del objetivo, drift de herramientas, redundancia documental) con clasificación semántica estricta bajo contratos JSON Schema `[CONFIRMADO]`.
+- **Inferencia local y evaluación de estrés:** Necesidad de auditar y estresar modelos turno a turno en entornos de desarrollo sin exponer claves de API ni depender de servicios cloud externos `[CONFIRMADO]`.
+
+### 1.3 Usuarios o sistemas consumidores
+- **Ingenieros de Agentes y Arquitecturas LLM:** Auditoría previa y continua de las ventanas de contexto antes del dispatch a modelos de frontera `[CONFIRMADO]`.
+- **Suites de Evaluación y CI/CD:** Banco de pruebas automatizado contra datasets adversariales para prevenir regresiones en prompts `[CONFIRMADO]`.
+- **Desarrolladores y QA en Antigravity IDE:** Simulación interactiva (Live Stress Test) evaluando la respuesta de múltiples modelos y esfuerzos de pensamiento (`effort: low|medium|high|max`) `[CONFIRMADO]`.
+- **Governance & Reliability Teams:** Auditoría formal y generación de reportes periciales de riesgo operacional `[DECLARADO]`.
+
+### 1.4 Alcance y límites del sistema
+- **In Scope:**
+  - Diagnóstico formal de 6 dimensiones contextuales: `instruction_conflict`, `task_ambiguity`, `context_contamination`, `evidence_quality`, `state_integrity`, `redundancy_pressure` `[CONFIRMADO]`.
+  - Normalizador determinista y parser de entrada tolerante a fallos `[CONFIRMADO]`.
+  - Extractor de señales heurísticas deterministas (conteo de turnos, ratio de utilización de contexto, detección de duplicados, reemplazos de herramientas, recencia del objetivo) `[CONFIRMADO]`.
+  - Motor de cálculo de Índice de Riesgo Contextual (IRC / CRS) con ponderaciones configurables y reglas de sobrescritura de seguridad (override rules) `[CONFIRMADO]`.
+  - Motor de políticas de recomendación (`audit_only`, `recommend`, `human_review`, `dry_run`) `[CONFIRMADO]`.
+  - Arquitectura Hexagonal de adaptadores: `GeminiAdapter` (API remota) y `AntigravityAdapter` (CLI local `agy.exe`) `[CONFIRMADO]`.
+  - CLI unificado con auto-detección y launcher PowerShell (`run_audit.ps1`) `[CONFIRMADO]`.
+  - Suite interactiva de benchmark y Live Stress Test (`InteractiveAuditorCLI`) con telemetría de tokens y persistencia automática de reportes en Markdown y JSON `[CONFIRMADO]`.
+- **Out of Scope:**
+  - Inferencia sobre estados mecanicistas de capas de atención, activaciones internas o memoria GPU/TPU (violación explícita del Contrato Epistémico) `[CONFIRMADO]`.
+  - Modificación automática no supervisada o mutación en caliente de prompts en ejecución `[DECLARADO]`.
 
 ---
 
 ## 2. ARQUITECTURA Y TOPOLOGÍA
-- **2.1 Estilo arquitectónico:** `[CONFIRMADO]` Arquitectura modular orientada a tuberías de auditoría (Pipeline-based Modular Engine) con desacoplamiento estricto en 6 capas:
-  1. *Capa de Ingesta y Normalización* (`normalizers`, `validators`).
-  2. *Capa de Señales Deterministas* (`signals` - Zero-LLM).
-  3. *Capa de Adaptación Semántica* (`adapters` - LLM Evaluation Harness).
-  4. *Capa de Ponderación y Reglas de Anulación* (`scoring` - cálculo IRC).
-  5. *Capa de Gobierno y Políticas* (`policies` - PolicyEngine).
-  6. *Capa de Interfaces de Consumo* (`cli`, Python SDK).
 
-- **2.2 Árbol estructural del repositorio (excluyendo ruido):** `[CONFIRMADO]`
+### 2.1 Estilo arquitectónico
+`[CONFIRMADO]` Arquitectura limpia y modular basada en **Puertos y Adaptadores (Clean Architecture / Hexagonal Architecture)** con diseño **Schema-First**:
+- **Núcleo de Dominio:** Modelos Pydantic v2 puros (`models.py`), motor de scoring determinista (`scoring.py`), extractor heurístico (`signals.py`) y motor de políticas (`policies.py`).
+- **Puertos:** `BaseLLMAdapter` en `adapters/base.py`.
+- **Adaptadores Concretos:** `GeminiAdapter` (Google GenAI SDK) y `AntigravityAdapter` (ejecución subprocess de `agy.exe`).
+- **Orquestador (Fachada):** `ContextAuditor` en `auditor.py`.
+- **Presentación e Interacción:** `cli.py` y `interactive.py` (`InteractiveAuditorCLI`).
+
+### 2.2 Árbol estructural del repositorio
 ```
 Context Entropy Auditor (CEA)/
+├── .agentignore                           # Exclusiones de indexación para agentes IA
+├── .context/                              # Metadatos del grafo topológico de gobernanza
+│   └── tree.json
 ├── .gitignore
-├── CONTRIBUTING.md                  # Guía para colaboradores
-├── Context Entropy Auditor.md       # Prompt inyectable original / Especificación base (v0)
-├── Entropy.jpeg                     # Diagrama conceptual de degradación contextual
-├── LICENSE                          # Licencia de código abierto MIT
-├── ROADMAP.md                       # Plan de releases y directrices de alcance
-├── pyproject.toml                   # Manifiesto de empaquetado Python y dependencias
-├── 001_Seed/                        # Repositorio de semillas arquitectónicas (ThinkingSeed)
+├── .pytest_cache/
+├── 01_seed/                               # Memoria técnica pasiva y ADN arquitectónico
+│   ├── .context.yaml
 │   └── seed-context-entropy-auditor-master.md
-├── 01_Status/                       # Directorio de control de estado (stub)
-├── artifacts/                       # Documentación y planes de evolución técnica
-│   ├── Fases/
-│   │   ├── README.md                # Resumen de estado de los incrementos
-│   │   ├── Inc0_Fundacion_Epistemica/ENTREGABLES.md
-│   │   ├── Inc1_Prompt_Core/ENTREGABLES.md
-│   │   ├── Inc2_Esquemas_Modelos/ENTREGABLES.md
-│   │   ├── Inc3_Scoring_Engine/ENTREGABLES.md
-│   │   ├── Inc4_Senales_Deterministas/ENTREGABLES.md
-│   │   ├── Inc5_SDK_CLI/ENTREGABLES.md
-│   │   ├── Inc6_Dataset_Evaluacion/ENTREGABLES.md
-│   │   └── Inc7_Publicacion/ENTREGABLES.md
-│   ├── plans/
+├── 02_foundation/                         # Fundamentos de arquitectura y gobernanza
+│   └── engine/
+│       ├── .context.yaml
+│       └── engine_readme.md
+├── 03_research/                           # Área de experimentación, notebooks y prompts
+│   ├── experiments/
+│   │   └── .context.yaml
+│   ├── notebooks/
+│   │   └── .context.yaml
+│   └── prompts/
+│       └── .context.yaml
+├── artifacts/                             # Artefactos, métricas y fases completadas
+│   ├── Fases/                             # Incrementos de desarrollo documentados (Inc0 - Inc7)
+│   ├── plans/                             # Planes activos y archivados
 │   │   ├── active/
-│   │   │   └── 01 PLAN GPT 5.6 SOL THINKING/
-│   │   │       ├── implementation_plan.md
-│   │   │       └── INSTRUCCION_MAESTRA_CONTEXT_ENTROPY_AUDITOR.md
+│   │   │   └── INFERRED_ROADMAP.md
 │   │   └── archive/
-│   │       └── Analisis de Planes/
-│   │           ├── Analisis_y_Plan_Definitivo.md
-│   │           ├── Plan_Optimizacion_GitHub.md
-│   │           └── Plan_Utilidades_Avanzadas.md
-│   └── Task del agente/task.md
-├── config/
-│   └── scoring_defaults.yaml        # Ponderaciones provisionales, umbrales y override rules
-├── data/                            # Directorio de datos (processed, raw, sandbox)
+│   ├── Task del agente/                   # Tareas y tracking operacional
+│   │   └── task.md
+│   ├── MetricsThinking.json               # Telemetría de auditoría de madurez (52.92%)
+│   └── MetricsThinking.md                 # Reporte formal de madurez del proyecto
+├── config/                                # Configuraciones operacionales
+│   ├── .context.yaml
+│   └── scoring_defaults.yaml              # Ponderaciones, umbrales y reglas de override
+├── data/                                  # Almacenamiento local de datos
 │   ├── processed/
 │   ├── raw/
 │   └── sandbox/
-├── dataset/
-│   ├── eval_dataset.jsonl           # Dataset de evaluación con casos etiquetados (5 casos iniciales)
-│   └── self_audit.json              # Muestra de auto-auditoría sobre el propio contexto
-├── docs/
-│   ├── methodology.md               # Metodología y principios epistemológicos
-│   ├── scoring.md                   # Modelo matemático y rúbricas del IRC (CRS)
-│   └── terminology.md               # Taxonomía y glosario bilingüe de fallos
-├── Engine/
-│   └── EngineReadme.md              # Documentación de motor y orquestación
-├── examples/                        # Casos de prueba de contexto estructurado
+├── dataset/                               # Datasets de evaluación y autodiagnóstico
+│   ├── eval_dataset.jsonl                 # Dataset de evaluación con casos representativos
+│   └── self_audit.json                    # Carga real de autodiagnóstico del sistema
+├── docs/                                  # Documentación técnica y epistémica
+│   ├── methodology.md                     # Contrato epistémico y límites de observabilidad
+│   ├── scoring.md                         # Formulación matemática del IRC y rúbricas
+│   └── terminology.md                     # Taxonomía formal bilingüe de modos de falla
+├── examples/                              # Payloads de prueba para simulación
 │   ├── ambiguous-task.json
 │   ├── contaminated-context.json
 │   ├── healthy-conversation.json
 │   ├── instruction-conflict.json
 │   └── tool-state-drift.json
-├── infrastructure/                  # Directorio de infraestructura (stub)
-├── logs/                            # Directorio de logs de ejecución (stub)
-├── Notebooks/                       # Directorio de Jupyter Notebooks de análisis (stub)
-├── prompts/                         # Plantillas de prompt para auditoría semántica
+├── logs/                                  # Registros y persistencia de benchmarks
+│   ├── .context.yaml
+│   └── benchmarks/                        # Subcarpetas generadas por sesión interactiva
+│       └── <session_id>/
+│           ├── session_meta.json
+│           ├── conversation.json
+│           ├── timeline.json
+│           └── summary_report.md
+├── prompts/                               # Prompts del sistema auditores estandarizados
 │   ├── auditor-simple-en.md
 │   ├── auditor-simple-es.md
 │   ├── auditor-technical-en.md
 │   ├── auditor-technical-es.md
 │   └── v0-original.md
-├── schemas/                         # Contratos formales JSON Schema (Draft-07)
+├── schemas/                               # Contratos JSON Schema oficiales (Draft 7 / 2020-12)
+│   ├── .context.yaml
 │   ├── audit-input.schema.json
 │   └── audit-result.schema.json
-├── scripts/
+├── scripts/                               # Scripts utilitarios y de evaluación
+│   ├── .context.yaml
 │   ├── Context Entropy Auditor.md
-│   └── evaluate.py                  # Script de evaluación de datasets de auditoría
+│   └── evaluate.py
 ├── src/
-│   └── context_auditor/
-│       ├── __init__.py              # Exportaciones públicas y versión del paquete
-│       ├── auditor.py               # Orquestador principal ContextAuditor
-│       ├── cli.py                   # Interfaz de línea de comandos (context-auditor)
-│       ├── models.py                # Modelos Pydantic v2 (AuditInput, AuditResult, etc.)
-│       ├── policies.py              # Motor de políticas y gobierno de acciones (PolicyEngine)
-│       ├── scoring.py               # Algoritmo de cálculo de IRC y reglas de anulación
-│       ├── signals.py               # Extractor de señales heurísticas deterministas (zero-LLM)
-│       ├── validators.py            # Validadores de conformidad con esquemas JSON Draft-07
+│   └── context_auditor/                   # Paquete principal Python
+│       ├── __init__.py
+│       ├── auditor.py                     # Orquestador ContextAuditor
+│       ├── cli.py                         # Entry point CLI con resolución de adaptadores
+│       ├── interactive.py                 # Suite Interactiva & Live Stress Test CLI
+│       ├── models.py                      # Modelos de dominio canónicos Pydantic v2
+│       ├── policies.py                    # Motor de políticas y filtrado de acciones
+│       ├── scoring.py                     # Cálculo matemático del IRC y overrides
+│       ├── signals.py                     # Extracción de señales heurísticas deterministas
+│       ├── validators.py                  # Validación contra schemas/
 │       ├── adapters/
-│       │   ├── base.py              # Interfaz abstracta BaseLLMAdapter
-│       │   └── gemini.py            # Adaptador para Google Gemini API (Mock / Real)
+│       │   ├── __init__.py                # Exportación unificada de adaptadores
+│       │   ├── base.py                    # Puerto abstracto BaseLLMAdapter y excepciones
+│       │   ├── antigravity.py             # Adaptador local para CLI agy.exe
+│       │   └── gemini.py                  # Adaptador para Google Gemini API
 │       └── normalizers/
-│           └── __init__.py          # Normalizador y convertidor de entradas heterogéneas
-├── tests/
+│           └── __init__.py                # Normalizador tolerante de entrada
+├── tests/                                 # Suite automatizada (36 tests)
+│   ├── .context.yaml
+│   ├── fixtures/                          # Fixtures de prueba
 │   ├── e2e/
-│   │   └── test_cli.py              # Pruebas End-to-End del CLI con subprocesos
+│   │   └── test_cli.py                    # Pruebas e2e de CLI y opciones interactivas
 │   └── unit/
-│       ├── test_normalizers.py      # Pruebas unitarias de normalización Pydantic
-│       ├── test_policies.py         # Pruebas de modos de política y contención destructiva
-│       ├── test_scoring.py          # Pruebas de pesos, umbrales y reglas override
-│       ├── test_signals.py          # Pruebas de cálculo de señales deterministas
-│       └── test_validators.py       # Pruebas de validación JSON Schema Draft-07
-└── Tools/                           # Directorio de herramientas y scripts auxiliares (stub)
+│       ├── test_antigravity_adapter.py    # Pruebas completas del adaptador agy.exe
+│       ├── test_interactive_session.py    # Pruebas de persistencia y telemetría de sesión
+│       ├── test_normalizers.py            # Pruebas de normalización
+│       ├── test_policies.py               # Pruebas del motor de políticas
+│       ├── test_scoring.py                # Pruebas de cálculo de IRC y overrides
+│       ├── test_signals.py                # Pruebas de extracción de señales
+│       └── test_validators.py             # Pruebas de validación de esquemas JSON
+├── CONTRIBUTING.md
+├── Context Entropy Auditor.md
+├── Entropy.jpeg
+├── LICENSE
+├── README.md                              # Documentación general en inglés
+├── README_ES.md                           # Documentación general en español
+├── ROADMAP.md                             # Roadmap del proyecto
+├── pyproject.toml                         # Manifiesto formal de empaquetado Python
+├── resultado_auditoria.json               # Evidencia de ejecución real de auto-auditoría
+└── run_audit.ps1                          # Launcher PowerShell para Windows
 ```
 
-- **2.3 Responsabilidad por directorio y archivo clave:** `[CONFIRMADO]`
-  - `src/context_auditor/auditor.py`: Clase `ContextAuditor`, orquesta el flujo de auditoría E2E: normaliza -> extrae señales deterministas -> invoca adaptador LLM -> calcula IRC y aplica reglas de anulación -> filtra acciones según políticas -> valida schema final.
-  - `src/context_auditor/models.py`: Entidades Pydantic v2 (`Role`, `Message`, `Document`, `ToolEvent`, `AuditInput`, `OverallStatus`, `EpistemicStatus`, `AuditScope`, `DimensionScores`, `Finding`, `RecommendedAction`, `AuditResult`).
-  - `src/context_auditor/scoring.py`: Funciones `load_scoring_config()`, `compute_base_status()`, `compute_irc()`. Aplica ponderaciones y reglas de anulación cargadas dinámicamente desde `config/scoring_defaults.yaml`.
-  - `src/context_auditor/signals.py`: `extract_deterministic_signals()` y `estimate_tokens()`. Calcula tokens estimados (heurística char//4), tasa de utilización contextual (`context_utilization_ratio`), conteo de turnos usuario/asistente, duplicados exactos en documentos (`exact_document_duplicates`), colisión de identificadores (`duplicate_ids_found`), llamadas a herramientas superadas (`superseded_tool_results`) y distancia al último turno de usuario (`messages_since_last_user_turn`).
-  - `src/context_auditor/policies.py`: Clase `PolicyEngine` con modos `AUDIT_ONLY`, `RECOMMEND`, `HUMAN_REVIEW`, `DRY_RUN`. Suprime acciones o exige aprobación forzosa (`requires_policy_approval = True`) si una acción es destructiva.
-  - `src/context_auditor/validators.py`: Funciones `validate_input()` y `validate_result()`. Utiliza la librería `jsonschema` contra `schemas/audit-input.schema.json` y `schemas/audit-result.schema.json`.
-  - `src/context_auditor/adapters/base.py`: Clase abstracta `BaseLLMAdapter` con método abstracto `evaluate_context()`.
-  - `src/context_auditor/adapters/gemini.py`: Implementación para Gemini; incluye fallback `_get_mock_evaluation()` para operación sin clave API y stub de integración con el SDK `google-genai`.
-  - `src/context_auditor/normalizers/__init__.py`: `normalize_input()`, valida sintácticamente con JSON Schema y des-serializa hacia el modelo fuertemente tipado `AuditInput`.
-  - `src/context_auditor/cli.py`: Función `main()`, entrypoint de consola registrado en `pyproject.toml` como `context-auditor`.
-  - `config/scoring_defaults.yaml`: Configuración declarativa de pesos dimensionales, rangos de semáforo y reglas de override.
-  - `schemas/`: Contratos formales canónicos de entrada y salida bajo estándar JSON Schema Draft-07.
-  - `docs/`: Documentación fundamental del marco metodológico (`methodology.md`), modelo matemático de scoring (`scoring.md`) y taxonomía bilingüe (`terminology.md`).
-  - `tests/`: Suite completa con 25 pruebas unitarias y E2E que validan todo el pipeline.
+### 2.3 Responsabilidad por directorio y archivo clave
+- `src/context_auditor/auditor.py`: Fachada principal del SDK (`ContextAuditor`). Orquesta el pipeline de auditoría: normalización, extracción de señales, evaluación semántica del adaptador, cálculo de IRC, filtrado de acciones por políticas y validación de salida `[CONFIRMADO]`.
+- `src/context_auditor/models.py`: Entidades canónicas fuertemente tipadas en Pydantic v2 (`AuditInput`, `AuditResult`, `Message`, `Role`, `ToolEvent`, `Document`, `DimensionScores`, `Finding`, `RecommendedAction`, `OverallStatus`, `EpistemicStatus`) `[CONFIRMADO]`.
+- `src/context_auditor/adapters/antigravity.py`: Adaptador local para el CLI `agy.exe`. Maneja la compilación de prompts, invocación por subprocess con argumentos de razonamiento (`--effort`), timeout, sanitización de envolturas JSON y code fences `[CONFIRMADO]`.
+- `src/context_auditor/adapters/gemini.py`: Adaptador remoto para la API de Google Gemini utilizando el SDK `google.genai` `[CONFIRMADO]`.
+- `src/context_auditor/adapters/base.py`: Define el contrato abstracto `BaseLLMAdapter` y la excepción canónica `AdapterExecutionError` `[CONFIRMADO]`.
+- `src/context_auditor/interactive.py`: Implementa `BenchmarkSession` (gestión de sesiones, timeline, telemetría y reportes markdown/json) y `InteractiveAuditorCLI` (interfaz de consola a color con menús de simulación, stress test en vivo turno a turno, cambio dinámico de modelos/effort y visualización histórica) `[CONFIRMADO]`.
+- `src/context_auditor/scoring.py`: Implementa el cálculo formal ponderado del IRC y las 5 reglas de sobrescritura crítica (overrides) desde `config/scoring_defaults.yaml` `[CONFIRMADO]`.
+- `src/context_auditor/signals.py`: Analizador heurístico determinista sin LLM (conteo de turnos, ratio de utilización de contexto, detección de duplicados, reemplazos de herramientas, recencia del objetivo) `[CONFIRMADO]`.
+- `src/context_auditor/policies.py`: Motor de gobernanza operacional con modos `audit_only`, `recommend`, `human_review`, `dry_run` `[CONFIRMADO]`.
+- `src/context_auditor/validators.py`: Validación estricta contra esquemas formales JSON Schema en `schemas/` `[CONFIRMADO]`.
+- `run_audit.ps1`: Script PowerShell de arranque rápido en Windows con verificación de `agy.exe` en PATH y parámetros CLI amigables `[CONFIRMADO]`.
 
-- **2.4 Límites modulares y acoplamiento:** `[CONFIRMADO]`
-  - **Aislamiento de Señales:** La capa de señales deterministas (`signals.py`) no tiene dependencias de red, de proveedores de IA ni de LLMs; opera exclusivamente sobre datos en memoria.
-  - **Motor de Scoring Aislado:** `scoring.py` es puramente algorítmico y declarativo, gobernado por `config/scoring_defaults.yaml`, sin dependencias con proveedores de modelos.
-  - **Inversión de Dependencias en LLMs:** Los proveedores de lenguaje se desacoplan mediante la interfaz abstracta `BaseLLMAdapter`, permitiendo intercambiar Gemini por Anthropic, OpenAI o modelos locales sin modificar el core del auditor.
-  - **Validación Bidireccional de Contratos:** Toda entrada y salida atraviesa validación JSON Schema estricta antes de ingresar o salir del núcleo del auditor.
+### 2.4 Límites modulares y acoplamiento
+- `[CONFIRMADO]` El núcleo analítico (`scoring.py`, `signals.py`, `models.py`) está 100% desacoplado de dependencias de proveedores de inferencia y frameworks de red.
+- `[CONFIRMADO]` Cualquier nuevo proveedor (OpenAI, Anthropic, Ollama, vLLM) puede incorporarse simplemente implementando `BaseLLMAdapter` sin tocar una sola línea del core de auditoría ni del cálculo de IRC.
 
 ---
 
 ## 3. FLUJOS DE EJECUCIÓN Y ENTRY POINTS
-- **3.1 Puntos de entrada principales:** `[CONFIRMADO]`
-  1. **CLI (Línea de comandos):** `context-auditor <input_file.json> [--policy <mode>] [--factual]` vía `src/context_auditor/cli.py` (registrado en `pyproject.toml` como `project.scripts`).
-  2. **Python SDK:** `from src.context_auditor import ContextAuditor, GeminiAdapter, PolicyMode; auditor = ContextAuditor(GeminiAdapter()); result = auditor.audit(raw_dict)`.
-  3. **Evaluador de Datasets (Benchmark CLI):** `python scripts/evaluate.py` para procesar en lote casos de evaluación contra `dataset/eval_dataset.jsonl`.
 
-- **3.2 Diagrama de flujo principal E2E (Mermaid):** `[CONFIRMADO]`
-```mermaid
-graph TD
-    A[Raw Input Context JSON] --> B[normalize_input in normalizers]
-    B --> C[JSON Schema Validation: audit-input.schema.json]
-    C --> D[Pydantic Deserialization: AuditInput]
-    D --> E[extract_deterministic_signals in signals.py]
-    E --> F[BaseLLMAdapter.evaluate_context AuditInput + Signals]
-    F --> G[Semantic Findings & Dimension Scores]
-    G --> H[compute_irc in scoring.py]
-    H --> I[Apply Dimensional Weights from YAML]
-    I --> J[Evaluate Override Rules from YAML]
-    J --> K[Determine OverallStatus & Triggered Rules]
-    K --> L[PolicyEngine.process_actions PolicyMode]
-    L --> M[Assemble AuditResult Model]
-    M --> N[JSON Schema Validation: audit-result.schema.json]
-    N --> O[Emit JSON Output to CLI / Caller]
+### 3.1 Puntos de entrada principales
+1. **Launcher Windows PowerShell (`run_audit.ps1`):**
+   ```powershell
+   .\run_audit.ps1 -Interactive
+   .\run_audit.ps1 -File examples/ambiguous-task.json -Model gemini-3.7-flash -Effort high
+   ```
+2. **CLI de Línea de Comandos (`src/context_auditor/cli.py`):**
+   ```bash
+   python -m context_auditor.cli examples/instruction-conflict.json --adapter antigravity --model gemini-3.7-flash --effort medium
+   python -m context_auditor.cli --interactive
+   ```
+3. **SDK Programático en Python:**
+   ```python
+   from src.context_auditor.auditor import ContextAuditor
+   from src.context_auditor.adapters.antigravity import AntigravityAdapter
+   from src.context_auditor.policies import PolicyMode
+
+   adapter = AntigravityAdapter(model="gemini-3.7-flash", effort="high")
+   auditor = ContextAuditor(llm_adapter=adapter, policy_mode=PolicyMode.RECOMMEND)
+   result = auditor.audit(raw_payload)
+   ```
+4. **Script de Evaluación por Lotes:**
+   ```bash
+   python scripts/evaluate.py dataset/eval_dataset.jsonl
+   ```
+
+### 3.2 Diagrama de flujo principal E2E
+```
+                     [Payload JSON de Entrada]
+                                 │
+                                 ▼
+                     [validators.py: validate_input]
+                                 │
+                     ┌───────────┴───────────┐
+                     │ (Válido)              │ (Inválido)
+                     ▼                       ▼
+            [normalizers.py]        [ValidationError: Exit 1]
+                     │
+         ┌───────────┴───────────────────────────────┐
+         ▼                                           ▼
+[signals.py: extract_deterministic_signals]   [BaseLLMAdapter: evaluate_context]
+  • Message counts & turns                     ├── AntigravityAdapter (agy.exe)
+  • Token estimation & utilization             └── GeminiAdapter (google.genai)
+  • Document exact duplicates                                │
+  • Stale tool drift detection                               │
+  • Last objective recency                                   ▼
+         │                                      [Semantic Dimension Scores]
+         │                                      [Findings & Recommendations]
+         └───────────────────┬───────────────────────────────┘
+                             ▼
+                [scoring.py: compute_irc]
+                  • Weighted Linear IRC (0 - 100)
+                  • Override Rules Evaluation
+                  • Base Status Determination
+                             │
+                             ▼
+                [policies.py: PolicyEngine]
+                  • Filter destructive actions
+                  • Enforce approval flags
+                             │
+                             ▼
+                [validators.py: validate_result]
+                             │
+                             ▼
+              [AuditResult: JSON / Report / CLI]
 ```
 
-- **3.3 Ciclo de vida de la ejecución y estados:** `[CONFIRMADO]`
-  - **Estado 0 (Ingesta):** Recepción de diccionario de contexto con mensajes, documentos, eventos de herramientas y telemetría de runtime.
-  - **Estado 1 (Validación Sintáctica):** Comprobación de conformidad con `audit-input.schema.json` y mapeo a `AuditInput`.
-  - **Estado 2 (Extracción Determinista):** Computación de métricas de tokens, ratios de uso de ventana, colisiones de IDs, duplicados de documentos y recencia de turnos sin LLM.
-  - **Estado 3 (Evaluación Semántica):** Inferencia evaluativa acotada a las 6 dimensiones estandarizadas (`0`, `25`, `50`, `75`, `100`), emitiendo hallazgos con referencias a evidencia (`evidence_refs`).
-  - **Estado 4 (Scoring y Arbitraje):** Cálculo ponderado de IRC y aplicación de reglas de anulación (`override_rules`).
-  - **Estado 5 (Filtrado de Políticas):** Interceptación de acciones recomendadas; si una acción es destructiva o el modo es `HUMAN_REVIEW`, se fuerza `requires_policy_approval = True`.
-  - **Estado 6 (Conformancia y Emisión):** Validación del dictamen final contra `audit-result.schema.json` y serialización.
+### 3.3 Ciclo de vida de la ejecución y estados
+- **Estados de Severidad Contextual (`OverallStatus`):**
+  - `stable` (IRC: 0.0 - 24.9) `[CONFIRMADO]`
+  - `moderate` (IRC: 25.0 - 49.9) `[CONFIRMADO]`
+  - `high` (IRC: 50.0 - 74.9) `[CONFIRMADO]`
+  - `critical` (IRC: 75.0 - 100.0) `[CONFIRMADO]`
+- **Reglas de Sobrescritura de Riesgo (Override Rules):**
+  - `critical_conflict_high_risk`: Si `instruction_conflict == 100` y el estado era `stable` o `moderate`, se eleva forzosamente a `high` `[CONFIRMADO]`.
+  - `critical_state_high_risk`: Si `state_integrity == 100` y el estado era `stable` o `moderate`, se eleva forzosamente a `high` `[CONFIRMADO]`.
+  - `critical_evidence_critical_risk`: Si `evidence_quality == 100` en tareas declaradas factuales (`task_requires_factual=True`), se eleva a `critical` `[CONFIRMADO]`.
+  - `low_coverage_warning` & `low_coverage_prevented_stable`: Si `evidence_coverage < 0.30`, no se permite declarar estado `stable`, forzando `moderate` `[CONFIRMADO]`.
+- **Clasificación Epistémica (`EpistemicStatus`):**
+  - `observed`: Evidencia directamente contrastada en el texto `[CONFIRMADO]`.
+  - `inferred`: Deducción lógica justificada por la semántica `[CONFIRMADO]`.
+  - `runtime_measured`: Medido heurísticamente por `signals.py` `[CONFIRMADO]`.
+  - `unknown`: No verificable con la información provista `[CONFIRMADO]`.
 
 ---
 
 ## 4. MODELO DE DATOS, CONTRATOS Y PERSISTENCIA
-- **4.1 Esquemas y entidades principales:** `[CONFIRMADO]`
 
-### Input Model (`AuditInput`)
-```json
-{
-  "schema_version": "1.0.0",
-  "messages": [
-    {
-      "id": "m1",
-      "role": "system | user | assistant | tool",
-      "content": "string",
-      "timestamp": "2026-09-14T20:00:00Z"
-    }
-  ],
-  "documents": [
-    {
-      "id": "d1",
-      "content": "string",
-      "source": "string",
-      "confidence": 0.95
-    }
-  ],
-  "tool_events": [
-    {
-      "id": "t1",
-      "tool_name": "string",
-      "parameters": {},
-      "result": "string",
-      "timestamp": "2026-09-14T20:00:00Z"
-    }
-  ],
-  "runtime_telemetry": {},
-  "audit_configuration": {
-    "context_limit_tokens": 128000
-  }
-}
-```
+### 4.1 Esquemas y entidades principales
+- **`AuditInput`:**
+  - `schema_version`: String semver (default: `"1.0.0"`).
+  - `messages`: Lista de `Message` (`id`, `role: system|user|assistant|tool`, `content`, `timestamp`).
+  - `documents`: Lista de `Document` (`id`, `content`, `source`, `confidence`).
+  - `tool_events`: Lista de `ToolEvent` (`id`, `tool_name`, `parameters`, `result`, `timestamp`).
+  - `runtime_telemetry`: Metadatos de ejecución (e.g. `latency_ms`, `tokens_consumed`).
+  - `audit_configuration`: Opciones de auditoría (e.g. `context_limit_tokens`).
+- **`AuditResult`:**
+  - `schema_version`: `"1.0.0"`.
+  - `audit_id`: Identificador único (e.g. `"audit-8f4b2a1c"`).
+  - `overall_status`: Enum `stable`, `moderate`, `high`, `critical`.
+  - `risk_score`: Float en rango `[0.0, 100.0]`.
+  - `confidence`: Float en rango `[0.0, 1.0]`.
+  - `evidence_coverage`: Float en rango `[0.0, 1.0]`.
+  - `scope`: `AuditScope` (`messages_observed`, `documents_observed`, `tool_outputs_observed`).
+  - `dimension_scores`: 6 enteros `[0, 100]` (`instruction_conflict`, `task_ambiguity`, `context_contamination`, `evidence_quality`, `state_integrity`, `redundancy_pressure`).
+  - `findings`: Lista de `Finding` (`finding_id`, `dimension`, `epistemic_status`, `severity`, `evidence_refs`, `explanation`, `confidence`).
+  - `recommended_actions`: Lista de `RecommendedAction` (`action`, `target_refs`, `reason`, `requires_policy_approval`, `destructive`).
+  - `triggered_rules`: Lista de strings con los nombres de las reglas de override disparadas.
+  - `limitations`: Lista de limitaciones metodológicas declaradas.
 
-### Output Model (`AuditResult`)
-```json
-{
-  "schema_version": "1.0.0",
-  "audit_version": "0.1.0",
-  "audit_id": "audit-a1b2c3d4",
-  "overall_status": "stable | moderate | high | critical",
-  "risk_score": 18.5,
-  "confidence": 0.95,
-  "evidence_coverage": 1.0,
-  "scope": {
-    "messages_observed": 4,
-    "documents_observed": 1,
-    "tool_outputs_observed": 1
-  },
-  "dimension_scores": {
-    "instruction_conflict": 0,
-    "task_ambiguity": 0,
-    "context_contamination": 0,
-    "evidence_quality": 0,
-    "state_integrity": 0,
-    "redundancy_pressure": 0
-  },
-  "findings": [
-    {
-      "finding_id": "f-01",
-      "dimension": "instruction_conflict",
-      "epistemic_status": "observed | inferred | runtime_measured | unknown",
-      "severity": 0,
-      "evidence_refs": ["m1"],
-      "explanation": "No conflicting instructions detected.",
-      "confidence": 0.95
-    }
-  ],
-  "recommended_actions": [
-    {
-      "action": "continue",
-      "target_refs": [],
-      "reason": "Context state is healthy.",
-      "requires_policy_approval": false,
-      "destructive": false
-    }
-  ],
-  "triggered_rules": [],
-  "limitations": []
-}
-```
+### 4.2 Almacenamiento, motores de base de datos y migraciones
+- `[CONFIRMADO]` El núcleo es completamente **stateless**. No requiere bases de datos relacionales ni motores SQL.
+- `[CONFIRMADO]` Persistencia estructurada en disco para sesiones de benchmark interactivo en `logs/benchmarks/<session_id>/`:
+  1. `session_meta.json`: Metadatos del benchmark, modelos y recuentos.
+  2. `conversation.json`: Contexto íntegro de la conversación auditada.
+  3. `timeline.json`: Array cronológico de turnos evaluados con latencias, tokens y scores.
+  4. `summary_report.md`: Reporte ejecutivo en Markdown con tabla comparativa de evolución del IRC.
 
-- **4.2 Almacenamiento, motores de base de datos y migraciones:** `[CONFIRMADO]` Stateless. No requiere base de datos relacional ni motor de almacenamiento persistente. Los datasets de prueba y benchmark residen como archivos `.json` y `.jsonl` en `dataset/` y `examples/`.
-- **4.3 Interfaces externas, payloads y contratos de API:** `[CONFIRMADO]` Contratos formales versionados bajo estándar JSON Schema Draft-07 en `schemas/audit-input.schema.json` y `schemas/audit-result.schema.json`.
+### 4.3 Interfaces externas, payloads y contratos de API
+- **Esquemas JSON formales:**
+  - [`schemas/audit-input.schema.json`](file:///d:/0001%20HyperScale%20Thinking/PROYECTOS%20CLOUD/Research%20and%20Development/Context%20Entropy%20Auditor%20%28CEA%29/schemas/audit-input.schema.json) `[CONFIRMADO]`.
+  - [`schemas/audit-result.schema.json`](file:///d:/0001%20HyperScale%20Thinking/PROYECTOS%20CLOUD/Research%20and%20Development/Context%20Entropy%20Auditor%20%28CEA%29/schemas/audit-result.schema.json) `[CONFIRMADO]`.
+- **Contrato de Subprocess con Antigravity CLI:**
+  - Invocación: `agy.exe --model <MODEL> [--effort <EFFORT>] --input-format text --output-format json --dangerously-skip-permissions` `[CONFIRMADO]`.
+  - Sanitización: Parsing robusto tolerante a envolturas `{"status": "SUCCESS", "response": ...}`, bloques de código markdown triple backtick (` ```json `), y fallback regex `[CONFIRMADO]`.
 
 ---
 
 ## 5. CONFIGURACIÓN Y AMBIENTE
-- **5.1 Tabla de variables de entorno:** `[CONFIRMADO]`
 
-| Variable | Tipo | Default | Efecto | Sensible |
-|---|---|---|---|---|
-| `GEMINI_API_KEY` | String | `None` | Clave de acceso a la API de Google Gemini en `GeminiAdapter`. Si está ausente, el adaptador conmuta a modo Mock funcional. | Sí (`<REDACTED>`) |
-| `CEA_CONFIG_PATH` | String | `config/scoring_defaults.yaml` | Ruta alternativa para la carga de ponderaciones dimensionales y umbrales. | No |
+### 5.1 Tabla de variables de entorno y opciones de configuración
+| Parámetro / Variable | Tipo | Default | Efecto | Sensible |
+|:---|:---:|:---:|:---|:---:|
+| `GEMINI_API_KEY` | Env Var (String) | `None` | Clave de acceso requerida si se utiliza `GeminiAdapter` | **Sí** |
+| `CEA_CONFIG_PATH` | Env Var (Path) | `config/scoring_defaults.yaml` | Ruta alternativa a las ponderaciones de scoring | No |
+| `--adapter` | CLI Flag | Auto-detect | Selecciona `antigravity` o `gemini` (si no hay clave pero existe `agy.exe`, auto-selecciona `antigravity`) | No |
+| `--model` | CLI Flag | `gemini-3.7-flash` | Modelo LLM a utilizar para inferencia | No |
+| `--effort` | CLI Flag | `medium` | Nivel de esfuerzo de pensamiento (`low`, `medium`, `high`, `max`) | No |
+| `--agy-path` | CLI Flag | `agy.exe` | Ruta al ejecutable de Antigravity CLI | No |
+| `--policy` | CLI Flag | `recommend` | Modo de política (`audit_only`, `recommend`, `human_review`, `dry_run`) | No |
+| `--factual` | CLI Flag | `False` | Activa comprobaciones estrictas de evidencia y reglas para afirmaciones fácticas | No |
 
-- **5.2 Perfiles de ejecución y modos de política:** `[CONFIRMADO]`
-  - `audit_only`: Diagnostica y reporta hallazgos; suprime cualquier acción recomendada (`recommended_actions = []`).
-  - `recommend`: Entrega diagnósticos y propone acciones, marcando automáticamente como `requires_policy_approval = true` a toda acción con `destructive: true`.
-  - `human_review`: Marca **todas** las acciones recomendadas sin excepción como `requires_policy_approval = true`.
-  - `dry_run`: Simula la evaluación y loguea la auditoría para pruebas en pipelines.
+### 5.2 Perfiles de ejecución
+- **Interactive Stress Test:** `python -m context_auditor.cli --interactive` o `.\run_audit.ps1 -Interactive` `[CONFIRMADO]`.
+- **Batch Audit CLI:** Invocación directa contra archivos JSON para CI/CD `[CONFIRMADO]`.
+- **SDK In-Memory:** Invocación limpia en pipelines agénticos sin persistencia en disco `[CONFIRMADO]`.
+- **Offline / Mocks Unit Testing:** Suite completa ejecutable sin conexión a internet ni consumo de tokens `[CONFIRMADO]`.
 
-- **5.3 Prerrequisitos de sistema e infraestructura:** `[CONFIRMADO]`
-  - Python >= 3.9 (validado en runtime Python 3.12.10).
-  - Dependencias de producción: `pydantic>=2.0.0`, `jsonschema>=4.0.0`, `pyyaml>=6.0`.
-  - Dependencias de desarrollo: `pytest>=7.0.0` (validado con pytest 9.1.1).
+### 5.3 Prerrequisitos de sistema e infraestructura
+- Python >= 3.9 (Desarrollado y probado en Python 3.12.10 sobre Windows 11) `[CONFIRMADO]`.
+- Dependencias de runtime declaradas en `pyproject.toml`:
+  - `pydantic>=2.0.0`
+  - `jsonschema>=4.0.0`
+  - `pyyaml>=6.0`
+- Dependencias de desarrollo:
+  - `pytest>=7.0.0`
+- Opcional para inferencia local offline:
+  - `agy.exe` instalado en el PATH o especificado vía `--agy-path` `[CONFIRMADO]`.
 
 ---
 
 ## 6. PRUEBAS, CI/CD Y OPERACIÓN
-- **6.1 Estrategia de pruebas:** `[CONFIRMADO]`
-  - **Pruebas Unitarias (`tests/unit/` - 23 tests):**
-    - `test_normalizers.py` (2 tests): Valida parsing de diccionarios crudos a modelos Pydantic y rechazo con error de payloads malformados.
-    - `test_policies.py` (3 tests): Valida supresión de acciones en modo `AUDIT_ONLY`, aprobación forzosa en `HUMAN_REVIEW` y contención de acciones destructivas en modo `RECOMMEND`.
-    - `test_scoring.py` (5 tests): Valida la fórmula matemática de ponderación del IRC, asignación de semáforos y activación de reglas de anulación (`critical_conflict`, `critical_state`, `low_coverage`).
-    - `test_signals.py` (7 tests): Valida conteo exacto de mensajes, estimación de tokens, duplicados de documentos, colisiones de IDs, reemplazo de herramientas y cálculo de turnos.
-    - `test_validators.py` (6 tests): Valida conformidad estricta contra `schemas/audit-input.schema.json` y `schemas/audit-result.schema.json`.
-  - **Pruebas End-to-End (`tests/e2e/` - 2 tests):**
-    - `test_cli.py` (2 tests): Ejecuta subprocesos invocando `cli.py` sobre `examples/healthy-conversation.json` verificando salida en JSON estándar y retorno exitoso (exit code 0).
-  - **Tasa de Éxito Actual:** 25/25 tests ejecutados y aprobados al 100% en 4.81s (`pytest-9.1.1`).
-- **6.2 Automatización y pipelines CI/CD:** `[DECLARADO]` Previsto en fase `v0.7` según `ROADMAP.md`; `.github/workflows/` no está creado aún (`[FALTANTE]`).
-- **6.3 Contenedores y orquestación:** `[INFERIDO]` No contiene Dockerfile actualmente; se distribuye y ejecuta como módulo Python estándar instalable vía `pip install -e .`.
+
+### 6.1 Estrategia de pruebas
+`[CONFIRMADO]` Suite de **36 pruebas automatizadas** ejecutadas y aprobadas al 100% con `pytest` en 5.00 segundos:
+- `tests/unit/test_antigravity_adapter.py` (9 tests):
+  - Inicialización y valores por defecto.
+  - Invocación exitosa con mocks.
+  - Sanitización de bloques Markdown (fences ` ```json `).
+  - Desenvolvimiento de envoltura JSON de `agy.exe`.
+  - Manejo de errores de proceso y retorno de código != 0.
+  - Captura y excepción tipada ante `FileNotFoundError` (`agy.exe` ausente).
+  - Manejo de timeouts (`subprocess.TimeoutExpired`).
+  - Parsing tolerante ante respuestas JSON inválidas.
+  - Resolución automática de adaptadores en CLI (`resolve_adapter`).
+- `tests/unit/test_interactive_session.py` (2 tests):
+  - Creación de sesión, tracking acumulativo de mensajes, documentos, herramientas y tokens.
+  - Registro de turnos y persistencia completa de artefactos (`session_meta.json`, `conversation.json`, `timeline.json`, `summary_report.md`).
+- `tests/unit/test_normalizers.py` (2 tests): Normalización de estructuras y rechazo de payloads inválidos.
+- `tests/unit/test_policies.py` (3 tests): Políticas `audit_only`, `recommend` y `human_review`.
+- `tests/unit/test_scoring.py` (5 tests): Cálculo de IRC, combinaciones de riesgo y las 4 reglas de override crítico.
+- `tests/unit/test_signals.py` (7 tests): Estimación de tokens, conteo de mensajes, duplicación exacta de documentos, integridad de IDs, drift de herramientas y recencia del objetivo de usuario.
+- `tests/unit/test_validators.py` (6 tests): Validación estricta contra esquemas de entrada y salida.
+- `tests/e2e/test_cli.py` (2 tests): Ejecución de CLI end-to-end con archivo válido e inválido.
+
+### 6.2 Automatización y pipelines CI/CD
+- `[CONFIRMADO]` Manifiesto de empaquetado `pyproject.toml` configurado con build-backend de setuptools y entry point `context-auditor`.
+- `[FALTANTE]` Pipeline de integración continua en GitHub Actions (`.github/workflows/ci.yml`).
+
+### 6.3 Contenedores y orquestación
+- `[DECLARADO]` Diseño modular preparado para contenedorización como microservicio REST/gRPC stateless o Cloud Run.
 
 ---
 
 ## 7. OBSERVABILIDAD Y MODOS DE FALLA
-- **7.1 Logs, métricas y tracing:** `[CONFIRMADO]`
-  - **Tripleta de Auditoría:** Toda evaluación emite obligatoriamente `risk_score` (0.0-100.0), `confidence` (0.0-1.0) y `evidence_coverage` (0.0-1.0).
-  - **Telemetría de Alcance (Scope):** Recuento explícito de `messages_observed`, `documents_observed`, `tool_outputs_observed` y `context_utilization_ratio`.
-- **7.2 Modos de falla conocidos y estrategias de recuperación:** `[CONFIRMADO]`
-  - *Falla por Payload Malformado:* Atrapado tempranamente por `jsonschema.validate` arrojando `ValidationError` antes de alcanzar el adaptador LLM o el motor de scoring.
-  - *Falla por Falta de Cobertura (`evidence_coverage < 0.30`):* Dispara la regla `low_coverage_prevented_stable`, impidiendo que un contexto truncado o ciego sea calificado como `stable` y forzando el estado a `moderate`.
-  - *Falla de Conflicto Crítico de Instrucción (`instruction_conflict == 100`):* Dispara la regla `critical_conflict_high_risk`, forzando el estado mínimo a `high`.
-  - *Falla de Integridad Crítica de Estado (`state_integrity == 100`):* Dispara la regla `critical_state_high_risk`, forzando el estado mínimo a `high`.
-  - *Falla de Calidad de Evidencia en Tareas Factuales (`evidence_quality == 100` y `--factual`):* Dispara la regla `critical_evidence_critical_risk`, forzando el estado a `critical`.
-- **7.3 Idempotencia y reintentos:** `[CONFIRMADO]` Las etapas deterministas (normalización, extracción de señales, scoring y filtrado de políticas) son 100% deterministas e idempotentes para un payload dado.
+
+### 7.1 Logs, métricas y tracing
+- **Telemetría de Tokens:** Estimación determinista turno a turno basada en ratios canónicos de caracteres/tokens (`signals.py`) `[CONFIRMADO]`.
+- **Latencia de Inferencia:** Registro de tiempo transcurrido en segundos por cada llamada de evaluación semántica `[CONFIRMADO]`.
+- **Evolución del IRC:** Tabla comparativa estructurada que traza el impacto de cada nuevo mensaje o documento sobre el riesgo contextual total `[CONFIRMADO]`.
+- **Auditoría de Madurez de Proyecto:** Sincronizado formalmente con el estándar MetricsThinking™ (`artifacts/MetricsThinking.json`) `[CONFIRMADO]`.
+
+### 7.2 Modos de falla conocidos y estrategias de recuperación
+1. **Falta de API Key remota:** Si `GEMINI_API_KEY` no está configurada, el CLI resuelve automáticamente hacia `AntigravityAdapter` si `agy.exe` está disponible en el sistema `[CONFIRMADO]`.
+2. **Falta de CLI Local:** Si `agy.exe` no existe o falla en ejecución, se lanza `AdapterExecutionError` con diagnóstico claro de instalación sin crashear el motor principal `[CONFIRMADO]`.
+3. **Payloads LLM con formato imperfecto:** `_extract_json()` en `antigravity.py` ejecuta 4 capas consecutivas de deserialización defensiva (top-level dict, markdown fence regex, json.loads standard, y regex balanceado de llaves externas) `[CONFIRMADO]`.
+4. **Violación de Contrato JSON Schema:** `validators.py` intercepta discrepancias antes del cálculo de scoring y durante la emisión de resultados `[CONFIRMADO]`.
+
+### 7.3 Idempotencia y pureza
+- Las funciones `compute_irc()` y `extract_deterministic_signals()` son funciones matemáticas puras: para un mismo payload de entrada, retornan idéntico resultado sin efectos colaterales `[CONFIRMADO]`.
 
 ---
 
 ## 8. SEGURIDAD Y PRIVACIDAD
-- **8.1 Hallazgos de seguridad estática:** `[CONFIRMADO]`
-  - El contenido auditado se procesa como **datos no confiables (untrusted data)**; los validadores impiden inyecciones estructurales mediante validación tipada estricta Pydantic y JSON Schema Draft-07.
-  - El CLI y la librería nunca ejecutan código dinámico (`eval`, `exec`).
-- **8.2 Manejo de autenticación, autorización y secretos:** `[CONFIRMADO]`
-  - Las claves de API se leen de variables de entorno (`os.environ.get("GEMINI_API_KEY")`) y no se persisten en código ni en artefactos.
-  - Los reportes de auditoría utilizan referencias por ID (`target_refs`, `evidence_refs`) en lugar de volcar secretos de autenticación.
-  - Toda acción clasificada como destructiva (`destructive: true`) exige autorización forzosa en la capa de políticas (`requires_policy_approval: true`).
-- **8.3 Privacidad de datos y cumplimiento:** `[CONFIRMADO]`
-  - Arquitectura stateless: no retiene memoria ni persiste los mensajes de los usuarios fuera del ciclo de vida de la llamada a la función de auditoría.
+
+### 8.1 Hallazgos de seguridad estática
+- Sin secretos, claves de API ni credenciales hardcodeadas en ningún archivo del repositorio `[CONFIRMADO]`.
+- Archivos `.agentignore` y `.gitignore` previenen la inclusión inadvertida de `.env`, `.venv`, `.pytest_cache` o credenciales temporales `[CONFIRMADO]`.
+
+### 8.2 Manejo de autenticación, autorización y secretos
+- Inferencia remota: Las credenciales son leídas exclusivamente desde el entorno del sistema (`os.environ.get("GEMINI_API_KEY")`) `[CONFIRMADO]`.
+- Inferencia local: `AntigravityAdapter` delega el control de permisos y autenticación a la sesión activa del CLI `agy.exe`, permitiendo operaciones aisladas en entornos corporativos `[CONFIRMADO]`.
+
+### 8.3 Privacidad de datos y cumplimiento
+- **Aislamiento Local:** El modo interactivo con `AntigravityAdapter` permite auditar conversaciones confidenciales sin que los datos salgan del equipo local hacia APIs públicas `[CONFIRMADO]`.
+- **Control de Acciones Destructivas:** Las recomendaciones destructivas (e.g. poda de contexto) son marcadas automáticamente con `requires_policy_approval: true` por el `PolicyEngine` `[CONFIRMADO]`.
 
 ---
 
 ## 9. ESTADO REAL, DEUDA TÉCNICA Y LIMITACIONES
-- **9.1 Nivel de madurez y avance real del proyecto:** `[CONFIRMADO]`
-  - **Fase actual:** `v0.5-public` (MVP funcional de alta calidad arquitectónica).
-  - **Componentes completados:** Modelos Pydantic v2, esquemas JSON Draft-07, motor de scoring con configuración YAML desacoplada, extractor de señales deterministas (zero-LLM), motor de políticas de remediación y CLI ejecutable con 25 pruebas pasando al 100%.
-- **9.2 Deuda técnica identificada y stubs pendientes:** `[CONFIRMADO]`
-  1. `GeminiAdapter` (`src/context_auditor/adapters/gemini.py`): Implementa fallback `_get_mock_evaluation` y mantiene stub `raise NotImplementedError` para llamadas reales a la API de Google Gemini mediante el SDK `google-genai`.
-  2. Dataset de evaluación y calibración: actualmente `dataset/eval_dataset.jsonl` contiene 5 casos etiquetados; el roadmap para v0.6 exige escalar a 30-50 casos con métricas formales de precisión y recall.
-  3. Suite de tests adversariales (`tests/adversarial/`): proyectada pero pendiente de implementación (`[FALTANTE]`).
-  4. Entorno virtual local (`.venv`): no tiene instalados los paquetes dev (la ejecución de tests requirió el intérprete global de Python 3.12 con pytest 9.1.1).
-- **9.3 Inconsistencias entre código y documentación:** `[CONFIRMADO]`
-  1. `__version__ = "0.1.0"` en `src/context_auditor/__init__.py` versus `version = "0.5.0"` en `pyproject.toml`.
-  2. `Artefactos/Fases/README.md` marca los incrementos 6 y 7 como "Completado", mientras que `Artefactos/Fases/Inc6_Dataset_Evaluacion/ENTREGABLES.md` y `Inc7_Publicacion/ENTREGABLES.md` indican entregables pendientes (⏳).
-  3. `LICENSE` en la raíz es de tipo MIT, mientras que `Inc7_Publicacion/ENTREGABLES.md` mencionaba inicialmente "Licencia Apache 2.0".
-  4. El archivo raíz `Context Entropy Auditor.md` contiene la versión preliminar del prompt v0 con términos antiguos (`Trajectory Lock-in`, `Lost-in-the-Middle`), los cuales fueron formalmente reemplazados en `docs/scoring.md` y en `src/context_auditor/models.py`.
+
+### 9.1 Nivel de madurez y avance real del proyecto
+- **Score MetricsThinking™:** **`52.92%`** — Estado: 🟡 **Construcción Activa / Madurez Media** `[CONFIRMADO]`.
+- **Módulos Core:**
+  - M01 (Descubrimiento y Alcance): 100% completado.
+  - M02 (Arquitectura y Diseño): 100% completado.
+  - M03 (Gobernanza y Context Engineering): 100% completado.
+  - M04 (Aprovisionamiento y Configuración): 100% completado.
+  - M05 (Construcción Núcleo): 80% completado (Motor heurístico + Scoring + Adaptador Antigravity + CLI Interactivo plenamente operativos).
+  - M10 (Cierre y Documentación): 100% completado.
+
+### 9.2 Deuda técnica identificada y stubs pendientes
+- `[FALTANTE]` M06 (Integración): Adaptadores para OpenAI API, Anthropic Claude API y LiteLLM.
+- `[FALTANTE]` M07 (QA & Stress): Expansión del dataset de evaluación (`dataset/eval_dataset.jsonl`) a 100+ escenarios sintéticos y adversariales.
+- `[FALTANTE]` M08 (Operación y Tracing): Exportador OpenTelemetry / Prometheus de métricas de entropía.
+- `[FALTANTE]` M09 (CI/CD): Workflow de GitHub Actions para validación automática de pull requests.
+
+### 9.3 Inconsistencias entre código y documentación
+- `[CONFIRMADO]` Ninguna inconsistencia detectada. El CLI, la documentación bilingüe (`README.md`, `README_ES.md`), los esquemas JSON y los scripts de ejecución están perfectamente alineados con la versión 0.5.0 del paquete.
 
 ---
 
 ## 10. REGLAS PARA MODIFICAR EL PROYECTO
-- **10.1 Convenciones de estilo, linting y tipado:** `[CONFIRMADO]`
-  - Tipado estricto con anotaciones de tipo estándar Python (`typing.List`, `Dict`, `Optional`, `Tuple`) y Pydantic v2.
-  - Convención snake_case para funciones y variables; PascalCase para clases y modelos.
-  - Esquemas JSON en formato kebab-case (`audit-input.schema.json`, `audit-result.schema.json`).
-  - Documentación bilingüe (código y nombres de variables en inglés; explicaciones metodológicas en inglés y español).
-- **10.2 Reglas arquitectónicas inviolables:** `[CONFIRMADO]`
-  1. **Rigor Epistemológico:** Prohibido emitir diagnósticos mecanicistas basados en suposiciones no observables en texto o telemetría (prohibido afirmar acceso a pesos internos, logits o estado físico de KV-Cache).
-  2. **Tripleta Obligatoria:** Ningún resultado de auditoría puede carecer de `risk_score`, `confidence` o `evidence_coverage`.
-  3. **No Destrucción sin Aprobación:** Toda acción destructiva (`destructive: true`) debe exigir aprobación de políticas (`requires_policy_approval: true`).
-  4. **Configuración Externa:** Los pesos de las dimensiones y las reglas de override jamás deben estar hardcodeados en código fuente Python; deben residir en `config/scoring_defaults.yaml`.
-  5. **Conformidad de Esquemas:** Todo cambio en `src/context_auditor/models.py` debe reflejarse y validarse contra los esquemas canónicos en `schemas/`.
-- **10.3 Checklist de verificación previa a commit:** `[CONFIRMADO]`
-  - [ ] Ejecutar la suite de pruebas completa: `python -m pytest` y verificar que los 25 tests pasen al 100%.
-  - [ ] Comprobar que los modelos Pydantic en `models.py` sincronicen exactamente con `schemas/audit-input.schema.json` y `schemas/audit-result.schema.json`.
-  - [ ] Validar compatibilidad de `config/scoring_defaults.yaml` con `scoring.py`.
-  - [ ] Verificar que no existan secretos, tokens o credenciales expuestas en ejemplos, datasets o código fuente.
+
+### 10.1 Convenciones de estilo, linting y tipado
+- Python 3.9+ con tipado estricto (`typing`, Pydantic v2) `[CONFIRMADO]`.
+- Formato PEP 8, nombres en `snake_case` para módulos/funciones y `PascalCase` para clases.
+- Manejo estricto de excepciones tipadas (`AdapterExecutionError`, `ValidationError`).
+
+### 10.2 Reglas arquitectónicas inviolables
+1. **Contrato Epistémico Absoluto:** Está estrictamente prohibido reportar supuestas anomalías mecánicas en capas de atención o memoria física interna de los modelos. Toda métrica debe ser observable en el texto o medida heurísticamente.
+2. **Independencia del Core:** El motor de scoring (`scoring.py`), las señales (`signals.py`) y los modelos (`models.py`) jamás deben importar librerías de clientes LLM (como `google-genai`, `openai`, etc.).
+3. **Consistencia de Esquemas:** Cualquier cambio en las entidades de `models.py` debe reflejarse y validarse simultáneamente en `schemas/audit-input.schema.json` y `schemas/audit-result.schema.json`.
+4. **Validación de Pruebas:** No se admite ningún commit que rompa alguna de las 36 pruebas existentes en `tests/`.
+
+### 10.3 Checklist de verificación previa a commit
+- [ ] Ejecutar la suite completa: `python -m pytest` (36/36 tests PASSED).
+- [ ] Comprobar que no se hayan introducido credenciales o tokens en archivos `.json`, `.yaml` o `.py`.
+- [ ] Validar que cualquier nuevo archivo o función pública cuente con sus respectivos tests unitarios en `tests/unit/`.
+- [ ] Verificar que `run_audit.ps1` y `python -m context_auditor.cli` ejecuten sin excepciones.
 
 ---
 

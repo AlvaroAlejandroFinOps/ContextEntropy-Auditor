@@ -3,7 +3,7 @@
 > **Framework de Gobernanza:** MetricsThinking™ v1.0.0-ENTERPRISE (SDD / Stage-Gate)  
 > **Estado Consolidado:** `52.9% / 100.0%` — **Construcción Activa / Madurez Media (50.0% - 74.9%)**  
 > **Cuello de Botella Activo:** `M05: Construcción Núcleo (Core Engine) (25.0% completado)`  
-> **Fecha de Emisión:** `2026-09-26 21:24:47`  
+> **Fecha de Emisión:** `2026-09-28 12:15:17`  
 
 Este documento representa el **Roadmap Operacional y de Ejecución Técnica** derivado por ingeniería inversa a partir de la evidencia física (Ground Truth) del repositorio. Sirve como guía de trabajo para el equipo de arquitectura y desarrollo.
 
@@ -27,7 +27,7 @@ Este documento representa el **Roadmap Operacional y de Ejecución Técnica** de
 
 ### Checklists de Implementación
 - [x] **AST / Modelos Canónicos Desacoplados** (`M02-C01`): Modelos de dominio canónicos detectados en 1 archivos (e.g. 'src/context_auditor/models.py'). *(Evidencia: `src/context_auditor/models.py`)*
-- [x] **ADRs Documentados** (`M02-C02`): Registro formal de decisiones arquitectónicas (ADRs) documentado en 'artifacts/plans/active/INSTRUCCION_MAESTRA_CONTEXT_ENTROPY_AUDITOR.md'. *(Evidencia: `artifacts/plans/active/INSTRUCCION_MAESTRA_CONTEXT_ENTROPY_AUDITOR.md`)*
+- [x] **ADRs Documentados** (`M02-C02`): Registro formal de decisiones arquitectónicas (ADRs) documentado en 'artifacts/plans/active/INFERRED_ROADMAP.md'. *(Evidencia: `artifacts/plans/active/INFERRED_ROADMAP.md`)*
 - [x] **Contratos JSON Schema Validados** (`M02-C03`): Contratos formales de datos / esquemas presentes (2 esquemas, e.g. 'schemas/audit-input.schema.json'). *(Evidencia: `schemas/audit-input.schema.json`)*
 - [x] **Topología y Grafos Formales** (`M02-C04`): Mapa topológico satelital y grafo formal del proyecto activo en '.context/tree.json'. *(Evidencia: `.context/tree.json`)*
 
@@ -68,7 +68,7 @@ Este documento representa el **Roadmap Operacional y de Ejecución Técnica** de
 ### Checklists de Implementación
 - [ ] **Parsers Funcionales** (`M05-C01`): Implementar parsers para lectura de especificaciones de entrada.
 - [ ] **Inferencia Operativa de Roles** (`M05-C02`): Desarrollar lógica central de inferencia o transformación.
-- [x] **Resolución de Relaciones y Ciclos** (`M05-C03`): Arquitectura modular interconectada (11 archivos fuente). *(Evidencia: `src/context_auditor/auditor.py`)*
+- [x] **Resolución de Relaciones y Ciclos** (`M05-C03`): Arquitectura modular interconectada (14 archivos fuente). *(Evidencia: `src/context_auditor/auditor.py`)*
 - [ ] **Generador Canónico de Métricas / Lógica** (`M05-C04`): Implementar generador de código o síntesis de medidas.
 
 ### Entregables Tangibles Esperados
@@ -83,7 +83,7 @@ Este documento representa el **Roadmap Operacional y de Ejecución Técnica** de
 ### Checklists de Implementación
 - [ ] **Emisores de Dialecto Nativo** (`M06-C01`): Crear emisores hacia tecnologías destino en src/core/emitter o similar.
 - [ ] **Escritura Atómica y Safe-Encoding** (`M06-C02`): Usar atomic write y UTF-8 seguro para serializar artefactos.
-- [x] **Exportación Multi-Formato** (`M06-C03`): Soporte de representación multi-formato verificado en el repositorio (.jpeg, .json, .jsonl, .md, .py).
+- [x] **Exportación Multi-Formato** (`M06-C03`): Soporte de representación multi-formato verificado en el repositorio (.jpeg, .json, .jsonl, .md, .ps1).
 
 ### Entregables Tangibles Esperados
 - 🎯 Cierre de brechas pendientes: Emisores de Dialecto Nativo, Escritura Atómica y Safe-Encoding.
@@ -95,7 +95,7 @@ Este documento representa el **Roadmap Operacional y de Ejecución Técnica** de
 **Avance:** `33.3%` | **Peso en Ciclo:** `10%` | **Estado:** 🔵 EN CONSTRUCCIÓN
 
 ### Checklists de Implementación
-- [x] **Cobertura y Tasa de Éxito de Pruebas** (`M07-C01`): Suite de pruebas presente (6 archivos de prueba en tests/, e.g. 'tests/e2e/test_cli.py'). *(Evidencia: `tests/e2e/test_cli.py`)*
+- [x] **Cobertura y Tasa de Éxito de Pruebas** (`M07-C01`): Suite de pruebas presente (8 archivos de prueba en tests/, e.g. 'tests/e2e/test_cli.py'). *(Evidencia: `tests/e2e/test_cli.py`)*
 - [ ] **Golden Regression Tests Validados** (`M07-C02`): Añadir tests de regresión con archivos golden / snapshots esperados.
 - [ ] **Suites de Estrés / Benchmark Masivo** (`M07-C03`): Implementar benchmarks o stress tests en tests/ o scripts/.
 
@@ -138,7 +138,7 @@ Este documento representa el **Roadmap Operacional y de Ejecución Técnica** de
 ### Checklists de Implementación
 - [x] **Documentación Técnica Exhaustiva (Seed)** (`M10-C01`): Memoria técnica formal (ThinkingSeed) identificada en '01_seed/seed-context-entropy-auditor-master.md'. *(Evidencia: `01_seed/seed-context-entropy-auditor-master.md`)*
 - [x] **CLI Help Documentado** (`M10-C02`): Instrucciones operativas y ayuda de comandos documentadas en 'README_ES.md'. *(Evidencia: `README_ES.md`)*
-- [x] **Adaptadores Multicanal / Roadmap** (`M10-C03`): Interfaces de extensibilidad y adaptadores multicanal verificados en 'src/context_auditor/adapters/base.py'. *(Evidencia: `src/context_auditor/adapters/base.py`)*
+- [x] **Adaptadores Multicanal / Roadmap** (`M10-C03`): Interfaces de extensibilidad y adaptadores multicanal verificados en 'src/context_auditor/adapters/antigravity.py'. *(Evidencia: `src/context_auditor/adapters/antigravity.py`)*
 
 ### Entregables Tangibles Esperados
 - ✅ Todos los artefactos y contratos físicos de **M10** han sido verificados satisfactoriamente en disco.

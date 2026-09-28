@@ -1,10 +1,10 @@
 {
   "project_name": "Context Entropy Auditor (CEA)",
   "project_path": "D:\\0001 HyperScale Thinking\\PROYECTOS CLOUD\\Research and Development\\Context Entropy Auditor (CEA)",
-  "audit_date": "2026-09-26 21:24:47",
+  "audit_date": "2026-09-28 12:15:17",
   "auditor": "MetricsThinking™ Universal Auditor",
   "profile_used": "default",
-  "git_commit": "d5acfd7",
+  "git_commit": "1820f44",
   "git_branch": "master",
   "modules": [
     {
@@ -60,8 +60,8 @@
           "criterion_id": "M02-C02",
           "name": "ADRs Documentados",
           "fulfilled": true,
-          "evidence_path": "artifacts/plans/active/INSTRUCCION_MAESTRA_CONTEXT_ENTROPY_AUDITOR.md",
-          "evidence_detail": "Registro formal de decisiones arquitectónicas (ADRs) documentado en 'artifacts/plans/active/INSTRUCCION_MAESTRA_CONTEXT_ENTROPY_AUDITOR.md'.",
+          "evidence_path": "artifacts/plans/active/INFERRED_ROADMAP.md",
+          "evidence_detail": "Registro formal de decisiones arquitectónicas (ADRs) documentado en 'artifacts/plans/active/INFERRED_ROADMAP.md'.",
           "remediation_hint": "Registrar ADRs formales en docs/notes o docs/architecture."
         },
         {
@@ -182,7 +182,7 @@
           "name": "Resolución de Relaciones y Ciclos",
           "fulfilled": true,
           "evidence_path": "src/context_auditor/auditor.py",
-          "evidence_detail": "Arquitectura modular interconectada (11 archivos fuente).",
+          "evidence_detail": "Arquitectura modular interconectada (14 archivos fuente).",
           "remediation_hint": "Asegurar algoritmos para resolver dependencias o relaciones."
         },
         {
@@ -225,7 +225,7 @@
           "name": "Exportación Multi-Formato",
           "fulfilled": true,
           "evidence_path": null,
-          "evidence_detail": "Soporte de representación multi-formato verificado en el repositorio (.jpeg, .json, .jsonl, .md, .py).",
+          "evidence_detail": "Soporte de representación multi-formato verificado en el repositorio (.jpeg, .json, .jsonl, .md, .ps1).",
           "remediation_hint": "Ofrecer serialización a JSON, Markdown o diagramas."
         }
       ],
@@ -244,7 +244,7 @@
           "name": "Cobertura y Tasa de Éxito de Pruebas",
           "fulfilled": true,
           "evidence_path": "tests/e2e/test_cli.py",
-          "evidence_detail": "Suite de pruebas presente (6 archivos de prueba en tests/, e.g. 'tests/e2e/test_cli.py').",
+          "evidence_detail": "Suite de pruebas presente (8 archivos de prueba en tests/, e.g. 'tests/e2e/test_cli.py').",
           "remediation_hint": "Desarrollar suite de tests en tests/."
         },
         {
@@ -356,8 +356,8 @@
           "criterion_id": "M10-C03",
           "name": "Adaptadores Multicanal / Roadmap",
           "fulfilled": true,
-          "evidence_path": "src/context_auditor/adapters/base.py",
-          "evidence_detail": "Interfaces de extensibilidad y adaptadores multicanal verificados en 'src/context_auditor/adapters/base.py'.",
+          "evidence_path": "src/context_auditor/adapters/antigravity.py",
+          "evidence_detail": "Interfaces de extensibilidad y adaptadores multicanal verificados en 'src/context_auditor/adapters/antigravity.py'.",
           "remediation_hint": "Documentar roadmap y adaptadores futuros en el plan maestro."
         }
       ],
@@ -471,13 +471,13 @@
     }
   ],
   "stats": {
-    "total_files_scanned": 89,
+    "total_files_scanned": 99,
     "seeds_detected": 1,
     "manifests_detected": 1,
     "context_files_detected": 25,
     "schemas_detected": 2,
-    "tests_detected": 6,
-    "source_files_detected": 11,
+    "tests_detected": 8,
+    "source_files_detected": 14,
     "is_git": true
   },
   "consolidated_score": 52.92,

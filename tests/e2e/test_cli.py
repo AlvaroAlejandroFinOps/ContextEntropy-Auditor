@@ -14,7 +14,7 @@ def test_cli_healthy_conversation():
     env["PYTHONPATH"] = base_dir
     
     result = subprocess.run(
-        ["python", "-m", "src.context_auditor.cli", example_path],
+        ["python", "-m", "src.context_auditor.cli", example_path, "--adapter", "gemini"],
         capture_output=True,
         text=True,
         env=env
